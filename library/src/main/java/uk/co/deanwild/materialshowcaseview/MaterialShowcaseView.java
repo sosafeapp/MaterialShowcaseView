@@ -436,6 +436,11 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
         }
     }
 
+    private void setContentAlpha(float alpha) {
+        if (mContentTextView != null) {
+            mContentTextView.setAlpha(alpha);
+        }
+    }
 
     private void setToolTip(ShowcaseTooltip toolTip) {
         this.toolTip = toolTip;
@@ -723,6 +728,18 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
          */
         public Builder setContentText(CharSequence text) {
             showcaseView.setContentText(text);
+            return this;
+        }
+
+        /**
+         * Set the description view's opacity/alpha (0.0 - 1.0)
+         * <p>
+         * <b>Note</b>: keep in mind that must be invoked after setTitleText()
+         * because it applies a default alpha if the title is not empty.
+         * </p>
+         */
+        public Builder setContentAlpha(float alpha) {
+            showcaseView.setContentAlpha(alpha);
             return this;
         }
 
